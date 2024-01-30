@@ -1,0 +1,22 @@
+<form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+  <label>
+    Categoria:
+    <input type="text" [formControl]="transactionForm.controls.category">
+  </label>
+  <br>
+
+  <label>
+    Valor:
+    <input type="number" [formControl]="transactionForm.controls.value">
+  </label>
+  <br>
+
+  <label>
+    Data:
+    <input type="date" [formControl]="transactionForm.controls.date">
+  </label>
+  <br>
+
+  <button type="submit">Enviar</button>
+  <button type="button" (click)="resetInputs()">Limpar Campos</button>
+</form>
