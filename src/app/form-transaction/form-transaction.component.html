@@ -1,22 +1,20 @@
-<form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
-  <label>
-    Categoria:
-    <input type="text" [formControl]="transactionForm.controls.category">
-  </label>
-  <br>
+  
+    <form [formGroup]="transactionForm">
+      <input type="text" placeholder="Category" [formControl]="transactionForm.controls.category">
+      <input type="number" placeholder="Value" [formControl]="transactionForm.controls.value">
+      <input type="date" placeholder="Date" [formControl]="transactionForm.controls.date">
 
-  <label>
-    Valor:
-    <input type="number" [formControl]="transactionForm.controls.value">
-  </label>
-  <br>
-
-  <label>
-    Data:
-    <input type="date" [formControl]="transactionForm.controls.date">
-  </label>
-  <br>
-
-  <button type="submit">Enviar</button>
-  <button type="button" (click)="resetInputs()">Limpar Campos</button>
-</form>
+  @for (transaction of transactionsArray; track $index) {
+    <br><br>
+      <input type="text" placeholder="Category" [formControl]="transactionForm.controls.category">
+      <input type="number" placeholder="Value" [formControl]="transactionForm.controls.value">
+      <input type="date" placeholder="Date" [formControl]="transactionForm.controls.date">
+    }
+  </form>
+    
+    
+    <br>
+    <button (click)="insertTransaction(transactionForm.value)">Save</button>
+    <button (click)="insertTransactionBatch()">Save Batch</button>
+    <button (click)="resetInputs()">Reset Fields</button>
+    <button (click)="addTransaction(transactionForm.value)"> + </button>
