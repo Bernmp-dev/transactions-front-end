@@ -1,0 +1,20 @@
+  
+    <form [formGroup]="transactionForm">
+      <input type="text" placeholder="Category" [formControl]="transactionForm.controls.category">
+      <input type="number" placeholder="Value" [formControl]="transactionForm.controls.value">
+      <input type="date" placeholder="Date" [formControl]="transactionForm.controls.date">
+
+  @for (transaction of transactionsArray; track $index) {
+    <br><br>
+      <input type="text" placeholder="Category" [formControl]="transactionForm.controls.category">
+      <input type="number" placeholder="Value" [formControl]="transactionForm.controls.value">
+      <input type="date" placeholder="Date" [formControl]="transactionForm.controls.date">
+    }
+  </form>
+    
+    
+    <br>
+    <button (click)="insertTransaction(transactionForm.value)">Save</button>
+    <button (click)="insertTransactionBatch()">Save Batch</button>
+    <button (click)="resetInputs()">Reset Fields</button>
+    <button (click)="addTransaction(transactionForm.value)"> + </button>

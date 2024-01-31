@@ -1,0 +1,62 @@
+
+<div>
+    <button (click)="selectFilter('date')">Date</button>
+    <button (click)="selectFilter('id')">Id</button>
+    <button (click)="selectFilter('category')">Category</button>
+    <br>
+    <br>
+    <input type="text" placeholder="value to be filtered" [(ngModel)]="selectedFilter" >
+
+    <button (click)="useFilter()">Filter</button>
+    <button (click)="resetFilters()">Reset</button>
+</div>
+
+<br>
+<br>
+
+
+
+@if (transactions.length > 0) {
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Category</th>
+                    <th>Value</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody >
+                @for(transaction of transactions; track transaction.id) {
+                    @if (selectedTransaction.id === transaction.id) {
+                        <tr>
+                            <td><input [(ngModel)]="transaction.id" type="text" disabled /></td>
+                            <td><input [(ngModel)]="transaction.category" type="text" /></td>
+                            <td><input [(ngModel)]="transaction.value" type="number" /></td>
+                            <td><input [(ngModel)]="transaction.date" type="date" /></td>
+                            <td>
+                                <button (click)="updateTransaction(transaction)" *ngIf="transaction.id">Salvar</button>
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>{{ transaction.id }}</td>
+                        <td>{{ transaction.category }}</td>
+                        <td>{{ transaction.value }}</td>
+                        <td>{{ transaction.date }}</td>
+                        <td>
+                            <button (click)="selectTransaction(transaction)">A</button>
+                            <button (click)="deleteSelectedTransaction(transaction.id)">X</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+ 
+} @else {
+        <p>No transactions.</p>
+}
+  
