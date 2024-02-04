@@ -1,3 +1,16 @@
+# Observações:
+
+- ✅ [Save] Inserir nova transação. (É necessário atualizar a página para visualizar a tabela atualizada).
+- ✅ [ 🅰️ - Alterar ] Alterar uma transação existente.
+- ✅ [ ✖️ - Deletar ] Excluir a transação selecionada.
+- ✅ [ ➕ ] Adicionar novos campos para salvar transações em lote.
+- ✅⚠️ [ Save Batch ] Salvar transações em lote. (A primeira transação não é incluída).
+- ❌ Excluir todas as transações simultaneamente não está disponível.
+- ❌ Os filtros por Data, ID e Categoria não estão completamente implementados.
+
+Todas as rotas de back-end estão operacionais, porém algumas funcionalidades de front-end ainda precisam ser concluídas.
+Em respeito ao prazo de entrega, mative o código desta maneira.
+
 # TransactionsFe
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
