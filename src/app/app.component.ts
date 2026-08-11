@@ -1,24 +1,19 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormTransactionComponent } from './form-transaction/form-transaction.component';
 import { TableTransactionComponent } from './table-transaction/table-transaction.component';
-import { HttpClientModule } from '@angular/common/http';
-import { TransactionEntity } from './TransactionEntity';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  imports: [
-    RouterOutlet,
-    FormsModule,
-    ReactiveFormsModule,
-    FormTransactionComponent,
-    TableTransactionComponent,
-    HttpClientModule
-   ],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        FormTransactionComponent,
+        TableTransactionComponent
+    ]
 })
 export class AppComponent {
 }

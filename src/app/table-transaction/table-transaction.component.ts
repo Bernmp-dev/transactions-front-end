@@ -1,17 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TransactionsService } from '../services/transactions.service';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
-import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 import { TransactionEntity } from "../TransactionEntity"
 
 @Component({
-  selector: 'app-table-transaction',
-  standalone: true,
-  imports: [ HttpClientModule, CommonModule, FormsModule ],
-  providers: [ TransactionsService ],
-  templateUrl: './table-transaction.component.html',
-  styleUrl: './table-transaction.component.scss'
+    selector: 'app-table-transaction',
+    imports: [FormsModule],
+    providers: [TransactionsService],
+    templateUrl: './table-transaction.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './table-transaction.component.scss'
 })
 export class TableTransactionComponent implements OnInit {
 

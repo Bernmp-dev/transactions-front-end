@@ -37,8 +37,10 @@
                             <td><input [(ngModel)]="transaction.value" type="number" /></td>
                             <td><input [(ngModel)]="transaction.date" type="date" /></td>
                             <td>
-                                <button (click)="updateTransaction(transaction)" *ngIf="transaction.id">Salvar</button>
-                            </td>
+                                                            @if (transaction.id) {
+                                                                <button (click)="updateTransaction(transaction)">Salvar</button>
+                                                            }
+                                                        </td>
                         </tr>
                     }
                     <tr>

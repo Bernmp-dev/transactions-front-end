@@ -1,22 +1,18 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { __values } from 'tslib';
 import { TransactionsService } from '../services/transactions.service';
 import { TransactionEntity } from '../TransactionEntity';
 
 @Component({
-  selector: 'app-form-transaction',
-  standalone: true,
-  imports: [ 
-    ReactiveFormsModule,
-    HttpClientModule,
-    CommonModule
-  ],
-  providers: [ TransactionsService ],
-  templateUrl: './form-transaction.component.html',
-  styleUrl: './form-transaction.component.scss'
+    selector: 'app-form-transaction',
+    imports: [
+        ReactiveFormsModule
+    ],
+    providers: [TransactionsService],
+    templateUrl: './form-transaction.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './form-transaction.component.scss'
 })
 export class FormTransactionComponent {
   constructor(private transactionService: TransactionsService){
